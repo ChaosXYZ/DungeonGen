@@ -1,11 +1,24 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QTabWidget
+from DungeonSpawn import DungeonTab
+from Home import HomeTab
+from KeyGen import KeyTab
 
 class BasicWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("DungeonGen")
         self.setGeometry(100, 100, 800, 600)
+
+        self.tabs = QTabWidget()
+        self.tabs.addTab(HomeTab(), "Home")
+        self.tabs.addTab(KeyTab(), "Key Generator")
+        self.tabs.addTab(DungeonTab(), "Dungeon Generator")
+        
+        layout = QVBoxLayout()
+        layout.addWidget(self.tabs)
+
+        self.setLayout(layout)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
