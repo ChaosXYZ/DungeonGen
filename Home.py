@@ -5,7 +5,7 @@ class HomeTab(QWidget):
     def __init__(self):
         super().__init__()
         self.UI()
-        print("New computer")
+        print("New computer V2")
 
     def UI(self):
         layout = QVBoxLayout()
