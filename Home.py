@@ -5,6 +5,7 @@ class HomeTab(QWidget):
     def __init__(self):
         super().__init__()
         self.UI()
+        print("Chaos")
 
     def UI(self):
         layout = QVBoxLayout()
