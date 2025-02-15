@@ -14,7 +14,7 @@ class HomeTab(QWidget):
         layout.addWidget(home_title)
 
         combined_text = (
-            "Welcome to DunGen,  this utility app is designed for a personal project with the goal of creating unique and recreatable dungeons\n."
+            "Welcome to DunGen,  this utility app is designed for a personal project with the goal of creating unique and recreatable dungeons.\n"
             "Dungeons: These are sets of challenges that can be physical, mental, or a mix of both. They are designed to be completed as quickly as possible without sacrificing accuracy.\n"
             "Features: The app allows you to create a 'Key' for each dungeon, which can be used to generate the same dungeon each time. The same key will always recreate the same dungeon."
         )
