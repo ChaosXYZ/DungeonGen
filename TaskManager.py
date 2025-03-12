@@ -7,7 +7,7 @@ class TaskManager():
         self.create_schema()
 
     def create_schema(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS Tasks (task_id INTEGER PRIMARY KEY NOT NULL, type TEXT CHECK(type IN ('Physical', 'Maths', 'Puzzle', 'Coding')) NOT NULL, difficulty INTEGER CHECK(difficulty BETWEEN 1 AND 10) NOT NULL, source TEXT NOT NULL ); ")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS Tasks (task_id INTEGER PRIMARY KEY NOT NULL, name TEXT, description TEXT, type TEXT CHECK(type IN ('Physical', 'Maths', 'Puzzle', 'Coding')) NOT NULL, difficulty INTEGER CHECK(difficulty BETWEEN 1 AND 10) NOT NULL, source TEXT NOT NULL ); ")
 
     def get_task(self, task_id):
         self.cursor.execute(f"SELECT * FROM Tasks where task_id = {task_id}")
@@ -30,3 +30,10 @@ class TaskManager():
                 difficulty_cond = f"AND difficulty = {difficulty[0]}"
 
         self.cursor.execute(f"SELECT task_id FROM Tasks where 1=1 {type_cond} {difficulty_cond}")
+    
+    def insert_task(self, name, desc, type, source, difficulty):
+        try:
+            self.cursor.execute(f"INSERT INTO Tasks (task_id, name, description, type, difficulty, source)  VALUES (NULL, '{name}', '{desc}', '{type}', {int(difficulty)}, '{source}'); ")
+            return "Success"
+        except sqlite3.Error as e:
+            print(f"Error: {e}")
