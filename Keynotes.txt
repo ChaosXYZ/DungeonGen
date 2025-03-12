@@ -1,3 +1,0 @@
-Key structure
-
-NumberOfMissions - Options - MISSION 1 - MISSION 2 - MISSION 3 - MISSION 4 - MISSION 5

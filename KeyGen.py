@@ -1,10 +1,12 @@
 from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout
-import random 
+import random
+from TaskManager import TaskManager
 
 class KeyTab(QWidget):
     def __init__(self):
         super().__init__()
         self.UI()
+        self.taskDB = TaskManager()
     
     def UI(self):
         layout = QVBoxLayout()
@@ -14,10 +16,15 @@ class KeyTab(QWidget):
 
     def keyGen(self, difficulty, includeMaths, includeCode, includePuzzle, includePhysical):
         numberOfMissions = max(1,random.randint(difficulty-3,difficulty))
-        includeMaths = 'M' if True else 'N'
-        includCode = 'C' if True else 'D'
-        includePuzzle = 'P' if True else 'K'
-        includePhysical = 'S' if True else 'R'
+        taskTypes = []
+        if includeMaths:
+            taskTypes.append("Maths")
+        if includeCode:
+            taskTypes.append("Code")
+        if includePuzzle:
+            taskTypes.append("Puzzle")
+        if includePhysical:
+            taskTypes.append("Physical")
 
     def pad(self, mission):
         if len(str(mission)) != 4:
