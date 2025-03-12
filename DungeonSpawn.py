@@ -10,3 +10,8 @@ class DungeonTab(QWidget):
         text = QLabel("Dungeon Spawner")
         layout.addWidget(text)
         self.setLayout(layout)
+    
+    def parseKey(self, key):
+        pass
+
+    
